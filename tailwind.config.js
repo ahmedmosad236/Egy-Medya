@@ -10,6 +10,13 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#D4AF37", // Gold color
+        secondary: "#1a1a1a", // Dark color
+        accent: "#FFD700", // Bright gold
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
     },
   },
