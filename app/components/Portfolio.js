@@ -260,8 +260,8 @@ export default function PortfolioSection() {
           <span>
             Inspiring{" "}
             <span className="relative inline-block mx-2">
-              <span className="inline-block w-4 h-4 bg-yellow-400 rounded-full"></span>
-              <span className="inline-block w-4 h-4 bg-white rounded-full absolute -top-2 left-2"></span>
+              <span className="inline-block text-yellow-400 p-5 bg-yellow-400 rounded-full mt-5"></span>
+              <span className="inline-block text-yellow-400 p-5 bg-white rounded-full mt-5"></span>{" "}
             </span>{" "}
             Possibilities
           </span>
