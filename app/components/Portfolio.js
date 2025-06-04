@@ -100,7 +100,7 @@ export default function PortfolioSection() {
                 <video
                   ref={(el) => (videoRefs.current[i] = el)}
                   src={src}
-                  muted
+                  // muted
                   loop
                   playsInline
                   className="object-cover w-full h-full"
