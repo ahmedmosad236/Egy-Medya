@@ -35,7 +35,7 @@ const Hero = () => {
     >
       {/* Content */}
       <div className="w-full relative z-10">
-        <div className="max-w-5xl text-left px-24">
+        <div className="max-w-5xl text-left px-6 sm:px-10 md:px-16 lg:px-24">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
