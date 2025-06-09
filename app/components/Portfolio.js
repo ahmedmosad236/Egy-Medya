@@ -32,6 +32,9 @@ export default function PortfolioSection() {
       perView: 1,
     },
     rubberband: false,
+    drag: true,
+    // تحسين للموبايل
+    dragSpeed: 1,
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
     },
@@ -76,22 +79,38 @@ export default function PortfolioSection() {
   }, [hasInteracted]);
 
   return (
-    <motion.section
+    <section
       id="portfolio"
-      className="relative min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-12"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8 }}
+      className="relative bg-black text-white flex flex-col items-center justify-start px-2 sm:px-4 py-4 md:py-8"
+      style={{
+        // تحسين للـ touch scrolling على المobايل
+        WebkitOverflowScrolling: "touch",
+        touchAction: "pan-y",
+        minHeight: "100vh",
+        width: "100%",
+        overflow: "hidden",
+      }}
     >
-      <div className="absolute top-6">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="w-full text-center mt-4 mb-6"
+      >
         <span className="text-xs px-3 py-1 rounded-full bg-[#1c1c1e] border border-yellow-400">
           ✨ Latest Projects
         </span>
-      </div>
+      </motion.div>
 
-      <div className="text-center mb-10 mt-16">
-        <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="text-center mb-6 md:mb-10"
+      >
+        <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold leading-tight px-2">
           Creating Impactful Content,
           <br />
           <span>
@@ -103,19 +122,23 @@ export default function PortfolioSection() {
             Possibilities
           </span>
         </h1>
-      </div>
+      </motion.div>
 
-      <div className="flex flex-col md:flex-row items-center gap-6 mt-8">
-        {/* Phone mockup with consistent borders */}
-        <div className="relative mx-auto w-[280px] md:w-[300px] lg:w-[340px] aspect-[9/16] rounded-[2.5rem] bg-gray-800 border-[4px] border-white shadow-[0_0_0_1px_#4b5563,0_0_0_2px_#ffffff] p-2">
+      <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2 mt-3 md:mt-6 w-full max-w-lg">
+        {/* Phone mockup with full mobile optimization */}
+        <div
+          className="relative mx-auto w-[90vw] max-w-[320px] sm:w-[280px] md:w-[300px] lg:w-[340px] rounded-[2rem] sm:rounded-[2.5rem] bg-gray-800 border-[3px] sm:border-[4px] border-white shadow-lg p-1.5 sm:p-2"
+          style={{ aspectRatio: "9/19.5" }}
+        >
           {/* Dynamic Island */}
           <div className="absolute top-3 left-1/2 transform -translate-x-1/2 z-10">
             <div className="w-16 md:w-20 h-6 md:h-7 bg-black rounded-full flex items-center justify-end pr-2">
-              <div className="w-2.5 h-2.5 md:w-3 h-3 bg-gray-600 rounded-full relative">
+              <div className="w-2.5 h-2.5 md:w-3 md:h-3 bg-gray-600 rounded-full relative">
                 <div className="absolute inset-0.5 bg-blue-400 rounded-full"></div>
               </div>
             </div>
           </div>
+
           {/* Left side buttons */}
           <div className="h-[16px] md:h-[20px] w-[3px] bg-white absolute -left-[8px] md:-left-[10px] top-[60px] md:top-[72px] rounded-l-lg"></div>
           <div className="h-[24px] md:h-[32px] w-[3px] bg-white absolute -left-[8px] md:-left-[10px] top-[100px] md:top-[124px] rounded-l-lg"></div>
@@ -125,10 +148,16 @@ export default function PortfolioSection() {
           {/* Right side button */}
           <div className="h-[50px] md:h-[64px] w-[3px] bg-white absolute -right-[8px] md:-right-[10px] top-[110px] md:top-[142px] rounded-r-lg"></div>
 
-          {/* Screen - now with matching rounded corners */}
+          {/* Screen - محسن للموبايل مع أحجام مرنة */}
           <div
             ref={sliderRef}
-            className="keen-slider rounded-[2rem] overflow-hidden w-full h-full bg-black"
+            className="keen-slider rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden w-full h-full bg-black"
+            style={{
+              touchAction: "pan-y",
+              WebkitUserSelect: "none",
+              userSelect: "none",
+              minHeight: "100%",
+            }}
           >
             {videos.map((src, i) => (
               <div
@@ -141,18 +170,25 @@ export default function PortfolioSection() {
                   muted
                   loop
                   playsInline
+                  preload="metadata"
                   className="object-cover w-full h-full cursor-pointer"
                   onClick={handleFirstInteraction}
+                  style={{
+                    // تحسين video rendering للموبايل
+                    objectFit: "cover",
+                    width: "100%",
+                    height: "100%",
+                  }}
                 />
 
                 {!hasInteracted && (
                   <div
-                    className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 cursor-pointer"
+                    className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 cursor-pointer z-20"
                     onClick={handleFirstInteraction}
                   >
-                    <div className="flex items-center gap-2 text-white bg-black bg-opacity-50 px-4 py-2 rounded-full text-sm md:text-base">
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-white bg-black bg-opacity-50 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm">
                       <svg
-                        className="w-4 h-4 md:w-5 h-5"
+                        className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -162,23 +198,26 @@ export default function PortfolioSection() {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-sm">اضغط للتشغيل بصوت</span>
+                      <span className="text-xs sm:text-sm">
+                        اضغط للتشغيل بصوت
+                      </span>
                     </div>
                   </div>
                 )}
 
-                <div className="absolute bottom-2 left-2 right-2 md:bottom-4 md:left-4 md:right-4 text-xs md:text-sm text-gray-200">
-                  Reel for Personal Brand
-                  <br />
-                  <span className="text-gray-400">– Ryan Fischer</span>
+                <div className="absolute bottom-1 sm:bottom-2 left-2 right-2 md:bottom-4 md:left-4 md:right-4 text-xs text-gray-200 z-10">
+                  <div className="text-xs sm:text-sm">
+                    Reel for Personal Brand
+                  </div>
+                  <div className="text-xs text-gray-400">– Ryan Fischer</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Video indicator - continuous bar */}
-        <div className="relative ml-2 md:ml-4">
+        {/* Video indicator - ملتصق بالموبايل */}
+        <div className="relative ml-0.5 hidden md:block">
           <div
             className="w-0.5 md:w-1 bg-gray-600 rounded-full"
             style={{ height: `${videos.length * 30}px` }}
@@ -195,7 +234,7 @@ export default function PortfolioSection() {
           {videos.map((_, index) => (
             <div
               key={index}
-              className="absolute left-0 w-3 md:w-4 cursor-pointer"
+              className="absolute left-0 w-3 md:w-4 cursor-pointer hover:bg-yellow-400 hover:bg-opacity-20 rounded transition-colors"
               style={{
                 height: "30px",
                 top: `${index * 30}px`,
@@ -205,13 +244,29 @@ export default function PortfolioSection() {
             />
           ))}
         </div>
+
+        {/* Mobile indicator - dots للموبايل */}
+        <div className="flex md:hidden justify-center gap-2 mt-3">
+          {videos.map((_, index) => (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide ? "bg-yellow-400" : "bg-gray-600"
+              }`}
+              onClick={() => instanceRef.current?.moveToIdx(index)}
+            />
+          ))}
+        </div>
       </div>
 
-      <div className="mt-8 text-center">
-        <a href="#portfolio" className="text-yellow-400 underline">
+      {/* <div className="mt-4 md:mt-8 text-center w-full">
+        <a
+          href="#portfolio"
+          className="text-yellow-400 underline hover:text-yellow-300 transition-colors"
+        >
           SEE ALL PORTFOLIO →
         </a>
-      </div>
-    </motion.section>
+      </div> */}
+    </section>
   );
 }
