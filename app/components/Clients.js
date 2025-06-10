@@ -115,7 +115,7 @@ export default function TrustedClientsSection() {
         </div>
 
         {/* Second row - Four cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {clients.slice(2).map((client, index) => (
             <motion.div
               key={index + 2}
