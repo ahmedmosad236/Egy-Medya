@@ -31,9 +31,9 @@ const AboutUs = () => {
   return (
     <section
       id="about-us-section"
-      className="relative bg-black text-white py-20 px-20 group transition duration-300 hover:ring-2 hover:ring-yellow-400/50 hover:shadow-xl font-poppins"
+      className="relative bg-black text-white py-20 px-20 group transition duration-300 hover:ring-2 hover:shadow-xl font-poppins"
     >
-      <span className="absolute top-32 left-40 border border-[#D4AF37] text-white text-xs px-4 py-1 rounded-full inline-flex items-center space-x-1">
+      <span className="absolute top-[122px] left-35 border border-[#D4AF37] text-white text-sm font-medium px-4 py-1 rounded-full inline-flex items-center space-x-1">
         <span className="text-xl">
           <WiStars />
         </span>

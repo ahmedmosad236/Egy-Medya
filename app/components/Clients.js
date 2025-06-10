@@ -64,9 +64,10 @@ export default function TrustedClientsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0 }}
+              className="group"
             >
               <div>
-                <div className="relative  rounded-2xl overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl border border-gray-800">
+                <div className="relative rounded-2xl overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl border border-gray-800 bg-[#070707]">
                   <div className="aspect-square relative">
                     <Image
                       src={clients[0].image}
@@ -92,8 +93,9 @@ export default function TrustedClientsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.1 }}
+              className="group"
             >
-              <div className="relative  rounded-2xl overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl border border-gray-800">
+              <div className="relative rounded-2xl overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl border border-gray-800 bg-[#070707]">
                 <div className="aspect-square relative">
                   <Image
                     src={clients[1].image}
@@ -123,8 +125,9 @@ export default function TrustedClientsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: (index + 2) * 0.1 }}
+              className="group"
             >
-              <div className="relative  rounded-2xl overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl border border-gray-800">
+              <div className="relative rounded-2xl overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl border border-gray-800 bg-[#070707]">
                 {
                   // client.type === "brand" ? (
                   //   <div className="aspect-square flex items-center justify-center p-6">

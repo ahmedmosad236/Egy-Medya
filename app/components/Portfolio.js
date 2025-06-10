@@ -98,7 +98,7 @@ export default function PortfolioSection() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="w-full text-center mt-4 mb-6"
       >
-        <span className="text-xs px-3 py-1 rounded-full bg-[#1c1c1e] border border-yellow-400">
+        <span className="text-sm font-medium px-3 py-1 rounded-full bg-[#1c1c1e] border border-yellow-400">
           ✨ Latest Projects
         </span>
       </motion.div>
@@ -124,7 +124,7 @@ export default function PortfolioSection() {
         </h1>
       </motion.div>
 
-      <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2 mt-3 md:mt-6 w-full max-w-lg">
+      <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2 mt-3 md:mt-6 w-full max-w-md">
         {/* Phone mockup with full mobile optimization */}
         <div
           className="relative mx-auto w-[90vw] max-w-[320px] sm:w-[280px] md:w-[300px] lg:w-[340px] rounded-[2rem] sm:rounded-[2.5rem] bg-gray-800 border-[3px] sm:border-[4px] border-white shadow-lg p-1.5 sm:p-2"

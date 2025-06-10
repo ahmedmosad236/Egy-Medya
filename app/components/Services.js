@@ -39,20 +39,20 @@ export default function VideoServicesSection() {
   return (
     <section
       id="services"
-      className="bg-[#0c0c0c] text-white py-20 px-6 md:px-16 rounded-3xl"
+      className="bg-[#0c0c0c] text-white py-16 px-2 md:px-2 rounded-3xl"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header section */}
-        <div className="mb-16 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16">
+        <div className="mb-16 flex flex-col md:flex-row justify-between items-center gap-80 ">
           <div>
-            <span className="inline-block ml-5 text-sm mb-6 text-yellow-400 border border-yellow-400 rounded-full px-3 py-1">
+            <span className="inline-block text-sm font-medium mb-6 border border-yellow-400 rounded-full px-3 py-1">
               ✨ Our Services
             </span>
-            <h2 className="text-5xl md:text-5xl font-bold mb-4 pl-7">
+            <h2 className="text-5xl md:text-5xl font-semibold mb-4 !leading-[56px] ">
               Video Solutions for Brand Growth
             </h2>
           </div>
-          <p className="text-white max-w-xl md:mt-4">
+          <p className="text-white font-normal text-sm leading-6 max-w-xl md:mt-4">
             From concept to final cut, we create high-impact videos that capture
             attention, build trust, and turn viewers into loyal clients.
           </p>
@@ -68,8 +68,8 @@ export default function VideoServicesSection() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="flex flex-col md:flex-row items-center justify-center gap-6 bg-gradient-to-br p-4 md:p-6 rounded-2xl group-hover:bg-[#161616] transition-all duration-300 group-hover:-translate-y-4 group-hover:shadow-2xl">
-                <div className="md:w-1/4 font-semibold text-xl">
+              <div className="flex flex-col md:flex-row items-center justify-start gap-40 bg-gradient-to-br p-4 md:p-6 rounded-2xl group-hover:bg-[#161616] transition-all duration-300 group-hover:-translate-y-4 group-hover:shadow-2xl">
+                <div className="md:w-1/4 text-3xl font-medium leading-10">
                   {service.title}
                 </div>
                 <Image
@@ -79,7 +79,9 @@ export default function VideoServicesSection() {
                   height={128}
                   className="w-full md:w-1/4 h-32 object-cover rounded-lg"
                 />
-                <p className="md:w-1/2 text-gray-300">{service.description}</p>
+                <p className="md:w-1/4 text-sm font-normal leading-5 text-gray-300">
+                  {service.description}
+                </p>
               </div>
             </motion.div>
           ))}

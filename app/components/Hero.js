@@ -8,6 +8,7 @@ import { Autoplay, FreeMode } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
+// import Link from "next/link";
 
 const Hero = () => {
   const serviceTags = [
@@ -35,12 +36,13 @@ const Hero = () => {
     >
       {/* Content */}
       <div className="w-full relative z-10">
-        <div className="max-w-5xl text-left px-6 sm:px-10 md:px-16 lg:px-24">
+        <div className="max-w-7xl text-left px-6 sm:px-10 md:px-16 lg:px-24">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight"
+            // className="text-[85px] md:text-6xl font-semibold text-white mb-4 leading-tight"
+            className="text-[14px] md:text-[80px] font-semibold text-white mb-4 leading-[85px] tracking-[-0.03em] font-poppins"
           >
             We Craft High-Impact Videos More Views, More Clients, More Growth!
           </motion.h1>
@@ -70,9 +72,14 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <motion.button
+              onClick={() => {
+                document
+                  .getElementById("contact")
+                  .scrollIntoView({ behavior: "smooth" });
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-[#D4AF37] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-amber-400 transition-all inline-flex items-center space-x-2"
+              className="bg-[#D4AF37] text-black px-6 py-2 mb-10 rounded-full font-semibold text-lg hover:bg-amber-400 transition-all inline-flex items-center space-x-2"
             >
               <span>GET IN TOUCH</span>
               <FiArrowRight className="w-10 h-10 p-2 bg-white rounded-3xl text-black" />

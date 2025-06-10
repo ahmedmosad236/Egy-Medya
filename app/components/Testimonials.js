@@ -7,22 +7,22 @@ import Image from "next/image";
 export default function TestimonialsSection() {
   const testimonials = [
     {
-      text: "Our business experienced a significant transformation thanks to this team's digital marketing expertise.",
+      text: "Our business experienced a significant transformation thanks to this team's digital marketing expertise. They delivered tangible improvements in our online visibility.",
       name: "Ryan Schroder",
       title: "Managing Director",
-      image: "/images/testm-1.jpg",
+      image: "/images/test-1.jpg",
     },
     {
       text: "Amazing service and results! Highly recommend their digital solutions.",
       name: "Jane Doe",
       title: "CEO",
-      image: "/images/client-6.jpg",
+      image: "/images/test-2.jpg",
     },
     {
       text: "We've seen incredible growth since working with this team. Highly professional and effective.",
       name: "John Smith",
       title: "CMO",
-      image: "/images/client-6.jpg",
+      image: "/images/test-3.jpg",
     },
   ];
 
@@ -44,7 +44,7 @@ export default function TestimonialsSection() {
       className="bg-black text-white py-20 px-6 md:px-16 relative"
     >
       <div className="max-w-7xl mx-auto text-center">
-        <span className="inline-flex items-center text-sm mb-6 text-white border border-yellow-400 rounded-full px-4 py-2">
+        <span className="inline-flex items-center text-sm font-medium mb-6 text-white border border-yellow-400 rounded-full px-4 py-2">
           ✨ Client Testimonials
         </span>
 
@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
               key={index}
               className="keen-slider__slide flex flex-col items-center justify-center px-4"
             >
-              <p className="text-3xl md:text-4xl py-8 md:px-20 font-semibold leading-10 mb-6 max-w-4xl mx-auto">
+              <p className="text-3xl text-center md:text-4xl py-8 md:px-20 font-semibold leading-10 mb-6 max-w-4xl mx-auto">
                 {testimonial.text}
               </p>
               <div className="flex items-center justify-center gap-4">
@@ -99,11 +99,11 @@ export default function TestimonialsSection() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 25 25"
-            className="w-8 h-8 md:w-10 md:h-10 fill-white"
+            className="w-8 h-8 md:w-10 md:h-10 fill-white scale-x-[-1]"
           >
             <path
               d="M24 12.001H2.914l5.294-5.295-.707-.707L1 12.501l6.5 6.5.707-.707-5.293-5.293H24v-1z"
-              data-name="Left"
+              data-name="Right"
             />
           </svg>
         </button>
