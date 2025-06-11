@@ -33,7 +33,6 @@ export default function PortfolioSection() {
     },
     rubberband: false,
     drag: true,
-    // تحسين للموبايل
     dragSpeed: 1,
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
@@ -78,12 +77,18 @@ export default function PortfolioSection() {
     };
   }, [hasInteracted]);
 
+  const handleScrollToServices = () => {
+    const servicesSection = document.getElementById("services");
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="portfolio"
       className="relative bg-black text-white flex flex-col items-center justify-start px-2 sm:px-4 py-4 md:py-8"
       style={{
-        // تحسين للـ touch scrolling على المobايل
         WebkitOverflowScrolling: "touch",
         touchAction: "pan-y",
         minHeight: "100vh",
@@ -102,7 +107,6 @@ export default function PortfolioSection() {
           ✨ Latest Projects
         </span>
       </motion.div>
-
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -116,18 +120,22 @@ export default function PortfolioSection() {
           <span>
             Inspiring{" "}
             <span className="relative inline-block mx-2">
-              <span className="inline-block text-yellow-400 p-5 bg-yellow-400 rounded-full mt-5"></span>
-              <span className="inline-block text-yellow-400 p-5 bg-white rounded-full mt-5"></span>{" "}
+              <span className="inline-block p-3 mt-2 text-yellow-400 md:p-5 bg-yellow-400 rounded-full md:mt-5"></span>
+              <span className="inline-block p-3 mt-2 text-yellow-400 md:p-5 bg-white rounded-full md:mt-5"></span>{" "}
             </span>{" "}
             Possibilities
           </span>
         </h1>
       </motion.div>
-
-      <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2 mt-3 md:mt-6 w-full max-w-md">
+      {/* Main content area: Phone and desktop stepper */}
+      <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2 mt-3 mb-5 md:mt-6 w-full max-w-md">
         {/* Phone mockup with full mobile optimization */}
-        <div
+        {/* <div
           className="relative mx-auto w-[90vw] max-w-[320px] sm:w-[280px] md:w-[300px] lg:w-[340px] rounded-[2rem] sm:rounded-[2.5rem] bg-gray-800 border-[3px] sm:border-[4px] border-white shadow-lg p-1.5 sm:p-2"
+          style={{ aspectRatio: "9/19.5" }}
+        > */}
+        <div
+          className="relative mx-auto w-[85vw] max-w-[280px] sm:max-w-[300px] md:w-[300px] lg:w-[340px] rounded-[2rem] sm:rounded-[2.5rem] bg-gray-800 border-[3px] sm:border-[4px] border-white shadow-lg p-1.5 sm:p-2"
           style={{ aspectRatio: "9/19.5" }}
         >
           {/* Dynamic Island */}
@@ -174,7 +182,6 @@ export default function PortfolioSection() {
                   className="object-cover w-full h-full cursor-pointer"
                   onClick={handleFirstInteraction}
                   style={{
-                    // تحسين video rendering للموبايل
                     objectFit: "cover",
                     width: "100%",
                     height: "100%",
@@ -216,7 +223,7 @@ export default function PortfolioSection() {
           </div>
         </div>
 
-        {/* Video indicator - ملتصق بالموبايل */}
+        {/* Video indicator - for large screens (md and up) */}
         <div className="relative ml-0.5 hidden md:block">
           <div
             className="w-0.5 md:w-1 bg-gray-600 rounded-full"
@@ -244,29 +251,65 @@ export default function PortfolioSection() {
             />
           ))}
         </div>
-
-        {/* Mobile indicator - dots للموبايل */}
-        <div className="flex md:hidden justify-center gap-2 mt-3">
-          {videos.map((_, index) => (
-            <button
-              key={index}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentSlide ? "bg-yellow-400" : "bg-gray-600"
-              }`}
-              onClick={() => instanceRef.current?.moveToIdx(index)}
-            />
-          ))}
+      </div>{" "}
+      {/* End of flex container for phone and desktop stepper */}
+      {/* Mobile indicator - dots للموبايل */}
+      <div className="flex md:hidden justify-center w-full max-w-sm mt-3 px-4">
+        <div className="relative w-full h-1 bg-gray-600 rounded-full">
+          {/* Active line / indicator */}
+          <div
+            className="absolute top-0 left-0 h-full bg-yellow-400 rounded-full transition-all duration-300 ease-out"
+            style={{
+              width: `max(5%, ${(currentSlide / (videos.length - 1)) * 100}%)`,
+            }}
+          ></div>
         </div>
       </div>
-
-      {/* <div className="mt-4 md:mt-8 text-center w-full">
-        <a
-          href="#portfolio"
-          className="text-yellow-400 underline hover:text-yellow-300 transition-colors"
+      {/* Scroll Down for mobile and small screens, hidden on md and up */}
+      <div
+        className="absolute bottom-60 right-4 sm:right-6 md:hidden flex flex-col items-center cursor-pointer hover:text-white transition-colors duration-200 z-10"
+        onClick={handleScrollToServices}
+      >
+        <span
+          className="flex gap-2 justify-center items-center text-xs uppercase tracking-widest transform rotate-90 origin-right whitespace-nowrap"
+          style={{ writingMode: "horizontal-bt", textOrientation: "mixed" }}
         >
-          SEE ALL PORTFOLIO →
-        </a>
-      </div> */}
+          SCROLL DOWN
+          <svg
+            className="w-4 h-4 "
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 12h14m0 0l-7-7m7 7l-7 7"
+            ></path>
+          </svg>
+        </span>
+      </div>
+      {/* This is a placeholder for your #services section.
+          Ensure you have a section with id="services" in your layout
+          for the scroll to work correctly.
+      */}
+      {/* <div
+        id="services"
+        style={{
+          height: "100vh",
+          background: "darkblue",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "2rem",
+          width: "100%",
+          color: "white", // Added for visibility
+        }}
+      >
+        <p>Your Services Section Goes Here</p> */}
+      {/* </div> */}
     </section>
   );
 }
