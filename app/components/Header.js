@@ -64,7 +64,7 @@ const Header = () => {
           </motion.button>
 
           <button
-            className="md:hidden text-white z-20 mr-10"
+            className="md:hidden text-white z-20 mr-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}

@@ -3,7 +3,13 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
-import { FaWhatsapp, FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaFacebook,
+  FaInstagram,
+  FaTiktok,
+  FaEnvelope,
+} from "react-icons/fa";
 import { FiLoader } from "react-icons/fi";
 
 export default function ContactSection() {
@@ -211,12 +217,12 @@ export default function ContactSection() {
               </div>
               <div className="md:pr-10">
                 <p className="text-gray-400 text-base font-normal mb-7">
-                  We Drive Real Result, More Traffic, More Leads, more Growth!
+                  We Drive Real Result, More Traffic , More Growth!
                 </p>
               </div>
               <div className="flex items-center gap-4">
                 <a
-                  href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+                  href="https://wa.me/+19526070861"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-green-500 transition-colors"
@@ -225,16 +231,14 @@ export default function ContactSection() {
                   <FaWhatsapp className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://facebook.com/YOUR_PAGE"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:Egymedya@gmail.com"
                   className="text-gray-400 hover:text-blue-600 transition-colors"
-                  aria-label="Facebook"
+                  aria-label="Email"
                 >
-                  <FaFacebook className="w-6 h-6" />
+                  <FaEnvelope className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://instagram.com/YOUR_HANDLE"
+                  href="https://www.instagram.com/egymedya?igsh=OWF2OXF1azI2emh6&utm_source=qr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-pink-600 transition-colors"
