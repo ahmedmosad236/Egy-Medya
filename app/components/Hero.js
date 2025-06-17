@@ -70,7 +70,7 @@ const Hero = () => {
       </div>
 
       {/* Scrolling Tags Bar */}
-      <div className="absolute bottom-10asa md:bottom-0 left-0 right-0 backdrop-blur-sm py-3 overflow-hidden sm:bottom-20 lg:bottom-6">
+      <div className="absolute bottom-10 md:bottom-0 left-0 right-0 backdrop-blur-sm py-3 overflow-hidden sm:bottom-20 lg:bottom-6">
         <div className="marquee-container">
           <div className="marquee-content">
             {/* First set of tags */}
