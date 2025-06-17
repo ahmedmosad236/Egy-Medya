@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
               key={index}
               className="keen-slider__slide flex flex-col items-center justify-center px-2 md:px-4"
             >
-              <p className="text-lg md:text-3xl lg:text-4xl text-center py-6 md:py-8 px-4 md:px-20 font-semibold leading-6 md:leading-10 mb-6 md:mb-6 max-w-4xl mx-auto">
+              <p className="text-sm md:text-3xl lg:text-4xl text-center py-6 md:py-8 px-4 md:px-20 font-semibold leading-6 md:leading-10 mb-6 md:mb-6 max-w-4xl mx-auto">
                 {testimonial.text}
               </p>
               <div className="flex items-center justify-center gap-3 md:gap-4">

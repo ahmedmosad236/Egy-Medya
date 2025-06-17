@@ -6,7 +6,7 @@ export default function TrustedClientsSection() {
   const clients = [
     {
       name: "Ryan Fischer",
-      title: "Managing Director",
+      title: "Real State Agent",
       image: "/images/client-6.jpg",
       type: "person",
     },
